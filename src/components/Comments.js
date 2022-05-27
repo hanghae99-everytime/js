@@ -28,7 +28,6 @@ const Comments = () => {
           </div>
           <div className="likeWrap">
             <div className="like"> <Like/> 1 개 </div>
-            <div>답글 쓰기</div>
           </div>
         </div>
       </Wrap>
@@ -63,7 +62,7 @@ padding: 0px 20px;
     }
   }
   .commentWrap{
-    margin-left: 11%;
+    margin-left: 9%;
     .likeWrap{
       display: flex;
       margin-top: 10px;

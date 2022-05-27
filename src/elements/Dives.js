@@ -11,7 +11,7 @@ const Dives = (props) => {
 
   return (
     <Dive>
-      <div className="title" onClick={()=>{history.push('/')}}>항해99에 타</div>
+      <div className="title" onClick={() => { history.push('/');  window.location.reload()}}>항해99에 타</div>
         <Button
         width="83%"
         height="3.5%"
@@ -19,7 +19,7 @@ const Dives = (props) => {
         top="91px"
         left="21px"
         color="black"
-        _onClick={()=>{history.push("/login")}}
+        _onClick={() => { history.push("/login");  window.location.reload()}}
       >
         로그인
       </Button>
@@ -30,6 +30,7 @@ const Dives = (props) => {
         top="124px"
         left="21px"
         color="black"
+        _onClick={() => { history.push("/write/1");  window.location.reload()}}
       >
         글작성하기
       </Button>
@@ -76,7 +77,7 @@ const Dive = styled.div`
     }
     .number {
       font-weight: 500;
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       text-align: center;
     }
     .string {

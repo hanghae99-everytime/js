@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Input = (props) => {
-  const {placeholder, onChange, type, margin, width, padding, height,value} = props;
+  const {placeholder, onChange, type, margin, width, padding, height,value,br} = props;
 
-  const styled = { width, margin, padding, height }
+  const styled = { width, margin, padding, height,br }
 
   return (
     <InputBox
@@ -25,16 +25,19 @@ Input.defaultProps = {
   margin: '',
   padding: '',
   height:'',
-  value:''
+  value: '',
+  br:''
 };
 
 const InputBox = styled.input`
-  background-color:  rgba(255, 255, 255, 0.5);;
+  background-color:  rgba(255, 255, 255, 0.5);
   border: none;
   ${(props) => (props.width ? `width:${props.width};` : '')};
   ${(props) => (props.height ? `height:${props.height};` : '')};
+  ${(props) => (props.margin ? `margin:${props.margin};` : '')};
   padding: 11px;
-  border-radius: 5px;
+  border-radius: ${(props) => (props.br==='50' ? '50px' : '5px')};;
+  /* border-radius: 5px; */
   ::placeholder {
   color: black;
   }
