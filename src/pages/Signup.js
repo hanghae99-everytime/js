@@ -22,7 +22,7 @@ const Signup = () => {
           </Dives>
           <div className="main">
             <div className="wrap">
-              <div className="title">회원가입</div>
+              <p className="title">회원가입</p>
               <div className="input">
                 <div className="label">이메일</div>
                 <Input
@@ -87,7 +87,7 @@ const Wrap = styled.div`
         margin: auto;
         font-weight: 700;
         font-size: 1.5rem;
-        width: 14%;
+        width: fit-content;
         margin-bottom: 30px;
       }
     }

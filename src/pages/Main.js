@@ -32,12 +32,12 @@ const Main = () => {
                     <div className='title'>글 제목ㄴㅇ마ㅣ럼ㅇ니라ㅓㅁㄴㅇ;리ㅏㅓㅁㄴㅇ;리ㅏㅁㄴ얼;민아ㅓㄹㅁㄴ;이라ㅓㅇㄴ;리ㅏㅓ</div>
                     <div className='iconWrap'>
                       <div className='icon'>
-                        <Like></Like>
-                        <div className='likeCnt'>10</div>
+                        <Like className='icons'></Like>
+                        <div className='Cnt'>10</div>
                       </div>
                       <div className='icon'>
-                        <Comment></Comment>
-                        <div className='commentCnt'>10</div>
+                        <Comment className='icons'></Comment>
+                        <div className='Cnt'>10</div>
                       </div>
                     </div>
                   </div>
@@ -118,6 +118,12 @@ display: flex;
             .icon{
               display: flex;
               align-items: center;
+              .icons{
+                margin-right: 5px;
+              }
+              .Cnt{
+                margin-right: 4px;
+              }
             }
           }
         }

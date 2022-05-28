@@ -32,11 +32,12 @@ const Detail = () => {
                 {edit === true
                 ?<div className="btn">
                   <Btn onClick={()=>{setEdit(false)}}/>
-                  <div>수정 삭제</div>
+                    <div className='editBox'>
+                      수정 삭제
+                    </div>
                   </div>
                 :<div className="btn">
                 <Btn onClick={()=>{setEdit(true)}}/>
-                <div></div>
                 </div>}
               </div>
               <div className="profile">
@@ -100,6 +101,11 @@ display: flex;
       }
       .btn{
         cursor: pointer;
+        .editBox{
+          background-color: white;
+          width: 100px;
+          z-index: 100;
+        }
       }
       .profile{
         display: flex;

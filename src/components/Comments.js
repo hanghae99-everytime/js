@@ -7,6 +7,7 @@ import { ReactComponent as Btn} from '../assets/btn.svg';
 import { ReactComponent as Like} from "../assets/like.svg";
 
 const Comments = () => {
+  //그리드 써서 해볼것 
   return (
       <Wrap>
         <div className="profile">

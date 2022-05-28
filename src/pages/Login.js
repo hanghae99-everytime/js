@@ -77,7 +77,7 @@ const Wrap = styled.div`
         margin: auto;
         font-weight: 700;
         font-size: 1.5rem;
-        width: 14%;
+        width: fit-content;
         margin-bottom: 30px;
       }
     }

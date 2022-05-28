@@ -1,33 +1,57 @@
 import React from 'react';
 import styled from 'styled-components';
 import { history } from "../redux/configureStore";
+import { useSelector } from 'react-redux';
 
 import Button from "../elements/Button";
 
 const Dives = (props) => {
-  const {} = props;
-
-  const styles = {};
-
+  const is_login = true
+  // const is_login = useSelector((store) => (store.user.is_login));
   return (
     <Dive>
-      <div className="title" onClick={() => { history.push('/');  window.location.reload()}}>항해99에 타</div>
+      <div className="title" onClick={() => { history.push('/'); window.location.reload(); }}>항해99에 타</div>
+      {is_login
+        ? <Button
+          width="83%"
+          height="3.5%"
+          br="40px"
+          top="91px"
+          left="21px"
+          color="black"
+          _onClick={() => { history.push("/myPage/1"); window.location.reload(); }}
+        >
+          마이페이지
+        </Button>
+        : <Button
+          width="83%"
+          height="3.5%"
+          br="40px"
+          top="91px"
+          left="21px"
+          color="black"
+          _onClick={() => { history.push("/login"); window.location.reload(); }}
+        >
+          로그인
+        </Button>}
+      {is_login &&
+        <div>
         <Button
         width="83%"
         height="3.5%"
         br="40px"
-        top="91px"
+        top="124px"
         left="21px"
         color="black"
-        _onClick={() => { history.push("/login");  window.location.reload()}}
+        _onClick={() => {}}
       >
-        로그인
+        로그아웃
       </Button>
       <Button
         width="83%"
         height="3.5%"
         br="40px"
-        top="124px"
+        top="158px"
         left="21px"
         color="black"
         _onClick={() => { history.push("/write/1");  window.location.reload()}}
@@ -40,6 +64,8 @@ const Dives = (props) => {
         <div className="string">게시글 현황</div>
         <hr className="line2" />
       </div>
+      </div>}
+
     </Dive>
   );
 };
@@ -66,7 +92,7 @@ const Dive = styled.div`
   }
   .article {
     position: absolute;
-    top: 165px;
+    top: 200px;
     width: 83px;
     left: 53px;
     .line {
