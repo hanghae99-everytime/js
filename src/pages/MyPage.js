@@ -137,7 +137,7 @@ const MyPage = () => {
 const Wrap = styled.div`
 display: flex;
   .main{
-    width: 80%;
+    width: 90%;
     height: 90%;
     margin: auto;
     background: rgba(255, 255, 255, 0.5);
@@ -146,7 +146,7 @@ display: flex;
     padding: 24px;
      .wrap{
       margin: auto;
-      width: 80%;
+      width: 90%;
       position: relative;
       .title{
         margin: auto;
@@ -170,8 +170,8 @@ display: flex;
       }
       .container{
         display: grid;
-        grid-template-columns: 0.5fr 1fr 1fr 1fr 0.5fr;
-        gap: 10px;
+        grid-template-columns: 0.2fr 1fr 1fr 1fr 0.2fr;
+        gap: 5px;
         .btn{
           width: fit-content;
           height: min-content;
@@ -184,8 +184,7 @@ display: flex;
         .contentsWrap{
           background: rgba(255, 255, 255, 0.5);
           box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-          width: 160px;
-          height: 180px;
+          height: 200px;
           padding: 10px;
           border-radius: 5px;
           .contents{

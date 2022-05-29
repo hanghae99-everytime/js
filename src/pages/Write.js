@@ -9,16 +9,17 @@ import Ba from '../elements/Background';
 import Back from '../elements/Back';
 import Dives from '../elements/Dives';
 
-//assets
-import { ReactComponent as Profile} from '../assets/profile.svg';
-import { ReactComponent as Btn} from '../assets/btn.svg';
-import { ReactComponent as Comment} from "../assets/comment.svg";
-import { ReactComponent as Like} from "../assets/like.svg";
-
+//redux
+import { actionCreators as articleActions } from "../redux/modules/article";
 
 const Write = () => {
+  const dispatch = useDispatch();
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+
+  const write =(title, content)=>{
+    dispatch(articleActions.wrtieDB(title, content))
+  }
   return (
     <Wrap>
     <Back>
@@ -47,7 +48,7 @@ const Write = () => {
               value={content}/>
             </div>
             <div>
-              <button className="btn">글 작성하기</button>
+              <button className="btn" onClick={write}>글 작성하기</button>
             </div>
           </div>
         </div>

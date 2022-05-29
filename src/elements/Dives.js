@@ -1,13 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { history } from "../redux/configureStore";
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
+import { actionCreators as articleActions } from "../redux/modules/article";
+
+//element
 import Button from "../elements/Button";
 
 const Dives = (props) => {
+  const dispatch = useDispatch();
+  const articleCount = useSelector((store)=> store.article.articleCount);
   const is_login = true
   // const is_login = useSelector((store) => (store.user.is_login));
+  useEffect(()=>{
+    dispatch(articleActions.articleCountDB());
+  },[])
   return (
     <Dive>
       <div className="title" onClick={() => { history.push('/'); window.location.reload(); }}>항해99에 타</div>
@@ -60,7 +68,7 @@ const Dives = (props) => {
       </Button>
       <div className="article">
         <hr className="line" />
-        <div className="number">10,000건</div>
+        <div className="number">{articleCount}건</div>
         <div className="string">게시글 현황</div>
         <hr className="line2" />
       </div>

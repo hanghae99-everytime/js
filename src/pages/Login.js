@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { useHistory } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 //elements
 import Input from '../elements/Input';
@@ -9,10 +8,18 @@ import Ba from '../elements/Background';
 import Back from '../elements/Back';
 import Dives from '../elements/Dives';
 
+//redux
+import { actionCreators as userActions } from "../redux/modules/user";
+
 const Login = () => {
+  const dispatch = useDispatch();
+
   const [email, setEmail] = useState('')
-  const [pw, setPw] = useState("")
-  
+  const [pwd, setPwd] = useState("")
+
+  const Login =()=>{
+    dispatch(userActions.loginDB(email,pwd))
+  }
   return (
     <Wrap>
     <Back>
@@ -38,11 +45,11 @@ const Login = () => {
               width="100%"
               height="30px"
               type="text"
-              onChange={(e)=>(setPw(e.target.value))}
-              value={pw}/>
+              onChange={(e)=>(setPwd(e.target.value))}
+              value={pwd}/>
             </div>
             <div>
-              <button className="btn" onClick={()=>{Login(email,pw)}}>로그인</button>
+              <button className="btn" onClick={Login}>로그인</button>
             </div>
             <SignupWrap>
             <div>

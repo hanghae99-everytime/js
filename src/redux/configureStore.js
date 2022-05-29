@@ -3,6 +3,9 @@ import thunk from "redux-thunk";
 import { createBrowserHistory } from "history";
 import { connectRouter } from "connected-react-router";
 
+import User from './modules/user';
+import Artilce from './modules/article';
+import Comment from './modules/commnet';
 // 히스토리 객체 만들기
 export const history = createBrowserHistory();
 
@@ -10,6 +13,9 @@ export const history = createBrowserHistory();
 // redux에 있는 모듈들 합하기
 const rootReducer = combineReducers({
   // 만든 history랑 라우터를 연결시켜 줌
+  article: Artilce,
+  user: User,
+  comment: Comment,
   router: connectRouter(history),
 });
 
