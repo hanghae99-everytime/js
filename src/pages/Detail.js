@@ -18,7 +18,6 @@ import { ReactComponent as Like} from "../assets/like.svg";
 const Detail = () => {
   const [input, setInput] = useState("")
   const [edit, setEdit] = useState(false);
-  
   return (
     <Wrap>
       <Back>
