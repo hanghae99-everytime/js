@@ -5,7 +5,8 @@ import { connectRouter } from "connected-react-router";
 
 import User from './modules/user';
 import Artilce from './modules/article';
-import Comment from './modules/commnet';
+import Comment from './modules/comment';
+import Like from './modules/like'
 // 히스토리 객체 만들기
 export const history = createBrowserHistory();
 
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
   article: Artilce,
   user: User,
   comment: Comment,
+  like:Like,
   router: connectRouter(history),
 });
 
