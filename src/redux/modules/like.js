@@ -2,33 +2,61 @@ import { createAction, handleActions } from "redux-actions";
 import { produce } from "immer";
 import axios from "axios";
 
-const LIKE = 'LIKE';
-const DELETE_LIKE = 'DELETE_LIKE';
+const IS_LIKE = 'IS_LIKE'
 
-const like = createAction(LIKE, (like) => ({ like }));
-const deleteLike = createAction(DELETE_LIKE, (like) => ({ like }));
+const isLike = createAction(IS_LIKE, (is_like)=>({is_like}))
 
 const initialState = {
-  like:{}
+  like: {},
+  is_like: false
 }
 
-const likeDB = () => {
+const likeDB = (articleID) => {
   return function (dispatch, getState, { history }) {  
+    axios.post(`/articles/:${articleID}/like`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("login-token")}`,
+        },
+    })
+      .then((res) => {
+        alert(res.data.msg);
+        dispatch(isLike())
+      })
+      .catch((err) => {
+      console.log('라이크 오류', err)
+    })
   }
 }
 
-const deleteLikeDB = () => {
+const deleteLikeDB = (articleID) => {
   return function (dispatch, getState, { history }) {
-    
+    axios.delete(`/articles/:${articleID}/like`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("login-token")}`,
+        },
+    })
+      .then((res) => {
+        alert(res.data.msg);
+        dispatch(isLike())
+      })
+      .catch((err) => {
+      console.log('라이크 오류', err)
+    })
   }
 }
 
 export default handleActions(
   {
-    [LIKE] :(state, action) => produce(state, (draft)=>{
-    }),
-    [DELETE_LIKE] :(state, action) => produce(state, (draft)=>{
+    [IS_LIKE]: (state, action) => produce(state, (draft) => {
+      draft.is_like = true
     }),
   },
   initialState
-)
+);
+
+const actionCreators = {
+  likeDB,
+  deleteLikeDB
+};
+
+export { actionCreators };
